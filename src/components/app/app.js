@@ -11,7 +11,8 @@ import './app.css'
 export default class App extends Component {
     state={
         showRandomChar: true,
-        error: false
+        error: false,
+        selectedChart: 120
     }
 
 
@@ -21,6 +22,12 @@ export default class App extends Component {
                 showRandomChar: !state.showRandomChar
             }
         });
+    }
+
+    onCharSelected = (id) => {
+        this.setState({
+            selectedChart: id
+        })
     }
 
     render(){
@@ -46,10 +53,10 @@ export default class App extends Component {
                     </Row>
                     <Row>
                         <Col md='6'>
-                            <ItemList />
+                            <ItemList onCharSelected={this.onCharSelected}/>
                         </Col>
                         <Col md='6'>
-                            <CharDetails />
+                            <CharDetails charId={this.state.selectedChart} />
                         </Col>
                     </Row>
                 </Container>
