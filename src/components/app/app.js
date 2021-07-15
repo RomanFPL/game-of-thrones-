@@ -12,7 +12,14 @@ export default class App extends Component {
     state={
         showRandomChar: true,
         error: false,
-        selectedChart: 120
+        selectedChart: null
+    }
+
+    componentDidCatch(){
+        console.log('error');
+        this.setState({
+            error: true
+        })
     }
 
 
