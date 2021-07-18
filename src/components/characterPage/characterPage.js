@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Col, Row, Container} from 'reactstrap';
+import RowBlock from '../rowBlock/rowBlock';
 import ItemList from '../itemList';
 import CharDetails from '../charDetails';
 import ErrorMessage from '../errorMessage';
@@ -31,17 +31,19 @@ export default class CharacterPage extends Component {
             return <ErrorMessage/>
         }
 
+        const itemList = (
+            <ItemList 
+            onCharSelected={this.onCharSelected}
+            gotData={this.gotService.getAllCharacters}
+            renderItem={({name, gender}) => `${name} ${gender}`}/>
+        )
+
+        const charDetails = (
+            <CharDetails charId={this.state.selectedChart} />
+        )
+
         return(
-        <Row>
-            <Col md='6'>
-                <ItemList 
-                    onCharSelected={this.onCharSelected}
-                    gotData={this.gotService.getAllCharacters}/>
-            </Col>
-            <Col md='6'>
-                <CharDetails charId={this.state.selectedChart} />
-            </Col>
-        </Row>
+            <RowBlock left={itemList} right={charDetails}/>
         )
     }
 }
