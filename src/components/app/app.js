@@ -31,7 +31,7 @@ export default class App extends Component {
         });
     }
 
-    onCharSelected = (id) => {
+    onItemSelected = (id) => {
         this.setState({
             selectedChart: id
         })
