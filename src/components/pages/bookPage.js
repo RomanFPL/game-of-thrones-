@@ -42,7 +42,8 @@ export default class BookPage extends Component {
         const charDetails = (
             <ItemDetails 
             itemId={this.state.selectedChart}
-            gotData={this.gotService.getBook}        >
+            gotData={this.gotService.getBook}
+            pageItem={"book"}           >
                 <Field field='numberOfPages' label='Pages'/>
                 <Field field='publisher' label='Published'/>
                 <Field field='released' label='Released'/>

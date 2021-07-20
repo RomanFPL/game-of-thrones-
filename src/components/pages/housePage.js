@@ -36,13 +36,14 @@ export default class HousePage extends Component {
             <ItemList 
             onItemSelected={this.onItemSelected}
             gotData={this.gotService.getAllHouses}
-            renderItem={({name, gender}) => `${name} ${gender}`}/>
+            renderItem={({name}) => name}/>
         )
 
         const charDetails = (
             <ItemDetails 
             itemId={this.state.selectedChart}
-            gotData={this.gotService.getHouse}        >
+            gotData={this.gotService.getHouse}
+            pageItem={"house"}        >
                 <Field field='region' label='Region'/>
                 <Field field='words' label='Word'/>
                 <Field field='titles' label='Title'/>

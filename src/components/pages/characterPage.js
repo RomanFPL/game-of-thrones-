@@ -42,7 +42,8 @@ export default class CharacterPage extends Component {
         const charDetails = (
             <ItemDetails 
             itemId={this.state.selectedChart}
-            gotData={this.gotService.getCharacter}        >
+            gotData={this.gotService.getCharacter}
+            pageItem={"character"}           >
                 <Field field='gender' label='Gender'/>
                 <Field field='born' label='Born'/>
                 <Field field='died' label='Died'/>

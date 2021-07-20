@@ -42,9 +42,9 @@ export default class ItemDetails extends Component {
     }
 
     render() {
-
+        const {pageItem} = this.props;
         if(!this.state.currentItem){
-            return <span className='select-error'>Please select a item</span>
+            return <span className='select-error'>Please select a {pageItem}.</span>
         }
         const {currentItem} = this.state; 
         const {name} = this.state.currentItem;
