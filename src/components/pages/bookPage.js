@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RowBlock from '../rowBlock/rowBlock';
 import ItemList from '../itemList';
-import CharDetails, {Field} from '../charDetails';
+import ItemDetails, {Field} from '../itemDetails';
 import ErrorMessage from '../errorMessage';
 import GotService from '../../services/gotService';
 
@@ -9,7 +9,7 @@ export default class BookPage extends Component {
     gotService = new GotService();
 
     state = {
-        selectedBook: null,
+        selectedChart: null,
         error: false
     }
 
@@ -21,7 +21,7 @@ export default class BookPage extends Component {
 
     onItemSelected = (id) => {
         this.setState({
-            selectedBook: id
+            selectedChart: id
         })
     }
     
@@ -40,12 +40,13 @@ export default class BookPage extends Component {
         )
 
         const charDetails = (
-            <CharDetails charId={this.state.selectedBook}>
-                <Field field='gender' label='Gender'/>
-                <Field field='born' label='Born'/>
-                <Field field='died' label='Died'/>
-                <Field field='culture' label='Culture'/>
-            </CharDetails>
+            <ItemDetails 
+            itemId={this.state.selectedChart}
+            gotData={this.gotService.getBook}        >
+                <Field field='numberOfPages' label='Pages'/>
+                <Field field='publisher' label='Published'/>
+                <Field field='released' label='Released'/>
+            </ItemDetails>
         )
 
         return(
