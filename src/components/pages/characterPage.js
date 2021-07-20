@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RowBlock from '../rowBlock/rowBlock';
 import ItemList from '../itemList';
-import ItemDetails, {Field} from '../charDetails';
+import ItemDetails, {Field} from '../itemDetails';
 import ErrorMessage from '../errorMessage';
 import GotService from '../../services/gotService';
 
