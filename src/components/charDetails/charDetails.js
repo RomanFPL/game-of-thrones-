@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './itemDetails.css';
-import GotService from '../../services/gotService';
 
 const Field = ({currentItem, field, label}) => {
     return (
@@ -14,8 +13,6 @@ const Field = ({currentItem, field, label}) => {
 export {Field}
 
 export default class ItemDetails extends Component {
-
-    gotService = new GotService;
 
     state = {
         currentItem: null
@@ -33,11 +30,12 @@ export default class ItemDetails extends Component {
 
     updateItem (){
         const {itemId} = this.props;
+        const {gotData} = this.props;
         if(!itemId){
             return;
         } 
 
-        this.gotService.getCharacter(itemId)
+        gotData(itemId)
         .then((currentItem) => {
             this.setState({currentItem});
         })
