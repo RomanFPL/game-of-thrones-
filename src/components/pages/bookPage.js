@@ -5,11 +5,11 @@ import CharDetails, {Field} from '../charDetails';
 import ErrorMessage from '../errorMessage';
 import GotService from '../../services/gotService';
 
-export default class CharacterPage extends Component {
+export default class BookPage extends Component {
     gotService = new GotService();
 
     state = {
-        selectedChart: null,
+        selectedBook: null,
         error: false
     }
 
@@ -21,7 +21,7 @@ export default class CharacterPage extends Component {
 
     onItemSelected = (id) => {
         this.setState({
-            selectedChart: id
+            selectedBook: id
         })
     }
     
@@ -35,12 +35,12 @@ export default class CharacterPage extends Component {
         const itemList = (
             <ItemList 
             onItemSelected={this.onItemSelected}
-            gotData={this.gotService.getAllCharacters}
-            renderItem={({name, gender}) => `${name} ${gender}`}/>
+            gotData={this.gotService.getAllBooks}
+            renderItem={({name}) => name}/>
         )
 
         const charDetails = (
-            <CharDetails charId={this.state.selectedChart}>
+            <CharDetails charId={this.state.selectedBook}>
                 <Field field='gender' label='Gender'/>
                 <Field field='born' label='Born'/>
                 <Field field='died' label='Died'/>
