@@ -5,15 +5,11 @@ import GotService from '../../services/gotService';
 export default class BooksItem extends Component {
     gotService = new GotService();
 
-    state = {
-        selectedBook: 3
-    }
-
     render(){
         return (
             <ItemDetails 
-            itemId={this.state.selectedBook}
-            gotData={this.gotService.getCharacter}        >
+            itemId={this.props.bookId}
+            gotData={this.gotService.getBook}        >
                 <Field field='gender' label='Gender'/>
                 <Field field='born' label='Born'/>
                 <Field field='died' label='Died'/>
