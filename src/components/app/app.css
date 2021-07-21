@@ -12,3 +12,7 @@
 .toggle-btn:focus {
     outline: none;
 }
+
+#root{
+    background: url('got.jpeg') center;
+}
