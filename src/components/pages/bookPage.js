@@ -9,7 +9,7 @@ export default class BookPage extends Component {
     gotService = new GotService();
 
     state = {
-        selectedChart: null,
+        selectedBook: null,
         error: false
     }
 
@@ -21,7 +21,7 @@ export default class BookPage extends Component {
 
     onItemSelected = (id) => {
         this.setState({
-            selectedChart: id
+            selectedBook: id
         })
     }
     
@@ -41,7 +41,7 @@ export default class BookPage extends Component {
 
         const charDetails = (
             <ItemDetails 
-            itemId={this.state.selectedChart}
+            itemId={this.state.selectedBook}
             gotData={this.gotService.getBook}        >
                 <Field field='numberOfPages' label='Pages'/>
                 <Field field='publisher' label='Published'/>
