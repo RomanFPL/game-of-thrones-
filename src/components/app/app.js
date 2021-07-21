@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Col, Row, Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
-import {CharacterPage, BookPage, HousePage} from '../pages';
+import {CharacterPage, BookPage, HousePage, BooksItem} from '../pages';
 import ErrorMessage from '../errorMessage';
 import './app.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -62,6 +62,9 @@ export default class App extends Component {
                     <Route path="/characters" component={CharacterPage}/>
                     <Route path="/houses" component={HousePage}/>
                     <Route path="/books" component={BookPage}/>
+                    <Route path="/books/:id" render={
+                        () => <BooksItem/>
+                        }/>
                     </Container>
                 </div>
             </Router>
